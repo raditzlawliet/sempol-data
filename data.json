@@ -1,0 +1,184 @@
+{
+  "version": "1.0",
+  "vehicleTypes": [
+    { "value": "SepedaMotor", "text": "Sepeda Motor" },
+    { "value": "Sedan", "text": "Sedan" },
+    { "value": "JeepMinibus", "text": "Jeep Minibus" },
+    { "value": "Microbus", "text": "Microbus" },
+    { "value": "Bus", "text": "Bus" },
+    { "value": "Pickup", "text": "Pickup" },
+    { "value": "Truck", "text": "Truck" },
+    { "value": "LightTruck", "text": "Light Truck" }
+  ],
+  "baseWeights": {
+    "SepedaMotor": {
+      "Bobot": 1,
+      "JR": 35000,
+      "BPKB": 225000,
+      "STNK": 100000,
+      "Plat": 60000,
+      "PNPBMutasi": 150000,
+      "DendaJR": 32000
+    },
+    "Sedan": {
+      "Bobot": 1.025,
+      "JR": 143000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "JeepMinibus": {
+      "Bobot": 1.05,
+      "JR": 143000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "Microbus": {
+      "Bobot": 1.085,
+      "JR": 143000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "Bus": {
+      "Bobot": 1.1,
+      "JR": 143000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "Pickup": {
+      "Bobot": 1.085,
+      "JR": 163000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "Truck": {
+      "Bobot": 1.4,
+      "JR": 163000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    },
+    "LightTruck": {
+      "Bobot": 1.3,
+      "JR": 163000,
+      "BPKB": 375000,
+      "STNK": 200000,
+      "Plat": 100000,
+      "PNPBMutasi": 250000,
+      "DendaJR": 100000
+    }
+  },
+  "formulas": {
+    "bbnkb": [
+      "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
+      "njkb = dasarPengenaanPajak / baseWeight.Bobot",
+      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
+      "pajak = dasarPengenaanPajak * (1.5 / 100)",
+
+      "dendaDuration = telatDay <= 0 ? 0 : telatDay / 29.5",
+      "dendaJasaRaharjaDuration = telatDay <= 0 ? 0 : telatDay / 365",
+
+      "jasaRaharja = baseWeight.JR",
+
+      "kekuranganPajak = (pajak / 12) * (dendaDuration + 1)",
+      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
+      "finalDendaJR = jasaRaharja * dendaJasaRaharjaDuration + dendaJR",
+
+      "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
+
+      "bpkb = baseWeight.BPKB",
+      "stnk = baseWeight.STNK",
+      "platNomor = baseWeight.Plat",
+
+      "total = bbn + pajak + jasaRaharja + kekuranganPajak + finalDendaJR + bpkb + stnk + platNomor"
+    ],
+    "fiskal": [
+      "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
+      "njkb = dasarPengenaanPajak / baseWeight.Bobot ",
+      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01 ",
+      "pajak = dasarPengenaanPajak * (1.5 / 100)",
+
+      "dendaDuration = telatDay <= 0 ? 0 : telatDay / 30",
+      "dendaJasaRaharjaDuration = telatDay <= 0 ? 0 : telatDay / 365",
+
+      "jasaRaharja = baseWeight.JR",
+
+      "kekuranganPajak = (pajak / 12) * (dendaDuration + 1) ",
+      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
+      "finalDendaJR = jasaRaharja * dendaJasaRaharjaDuration + dendaJR",
+
+      "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
+
+      "PNPBMutasi = baseWeight.PNPBMutasi",
+      "bpkb = baseWeight.BPKB",
+      "stnk = baseWeight.STNK",
+      "platNomor = baseWeight.Plat",
+
+      "total = kekuranganPajak + PNPBMutasi + finalDendaJR"
+    ],
+    "stnkLimaTahunan": [
+      "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
+      "njkb = dasarPengenaanPajak / baseWeight.Bobot",
+
+      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
+      "pajak = dasarPengenaanPajak * (1.5 / 100)",
+
+      "dendaDuration = telatDay <= 0 ? 0 : telatDay / 31",
+      "dendaJasaRaharjaDuration = telatDay <= 0 ? 0 : telatDay / 365",
+
+      "jasaRaharja = baseWeight.JR",
+
+      "kekuranganPajak = pajak * floor(telatDay / 365)",
+      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
+      "finalDendaJR = jasaRaharja * floor(dendaJasaRaharjaDuration) + dendaJR",
+
+      "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
+
+      "bpkb = baseWeight.BPKB",
+      "stnk = baseWeight.STNK",
+      "platNomor = baseWeight.Plat",
+
+      "total = pajak + jasaRaharja + kekuranganPajak + finalDendaJR + stnk + platNomor"
+    ],
+    "pajakKendaraanTahunan": [
+      "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
+      "njkb = dasarPengenaanPajak / baseWeight.Bobot",
+
+      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
+      "pajak = dasarPengenaanPajak * (1.5 / 100)",
+
+      "dendaDuration = telatDay <= 0 ? 0 : telatDay / 31",
+      "dendaJasaRaharjaDuration = telatDay <= 0 ? 0 : telatDay / 365",
+
+      "jasaRaharja = baseWeight.JR",
+
+      "kekuranganPajak = pajak * floor(telatDay / 365)",
+      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
+      "finalDendaJR = jasaRaharja * floor(dendaJasaRaharjaDuration) + dendaJR",
+
+      "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
+
+      "bpkb = baseWeight.BPKB",
+      "stnk = baseWeight.STNK",
+      "platNomor = baseWeight.Plat",
+
+      "total = pajak + jasaRaharja + kekuranganPajak + finalDendaJR"
+    ]
+  }
+}
