@@ -2,4 +2,4 @@
 
 ## v1.0
 
-- 🌟 Inisiasi data utama
+- 🌟 Inisialisasi data utama
