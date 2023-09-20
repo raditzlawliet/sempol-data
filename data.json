@@ -120,7 +120,7 @@
       "jasaRaharja = baseWeight.JR",
 
       "kekuranganPajak = (pajak / 12) * (dendaDuration + 1) ",
-      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
+      "dendaJR = baseWeight.DendaJR *   ",
       "finalDendaJR = jasaRaharja * dendaJasaRaharjaDuration + dendaJR",
 
       "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
