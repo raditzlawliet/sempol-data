@@ -106,17 +106,17 @@ Here available variable:
 | masukanPajak          | in     | Number    | Input Masukan Pajak                                                   | All     |
 | telatDay              | in     | Number    | Late duration from Input "Masa Laku Pajak" and current time (in days) | All     |
 | baseWeight            | in     | Object    | baseWeight object from data, already filtered with vehicle type       | All     |
-| njkb                  | out    | Number    | NJKB                                                                  | All     |
-| dasarPengenaanPajak   | out    | Number    | Dasar Pengenaan                                                       | All     |
-| bbn                   | out    | Number    | Bea Balik Nama                                                        | All     |
-| pajak                 | out    | Number    | Pajak                                                                 | All     |
-| jasaRaharja           | out    | Number    | Jasa Raharja                                                          | All     |
+| njkb                  | out    | Number    | NJKB                                                                  | bbnkb, stnkLimatTahunan, pajakKendaraanTahunan     |
+| dasarPengenaanPajak   | out    | Number    | Dasar Pengenaan                                                       | bbnkb, stnkLimatTahunan, pajakKendaraanTahunan     |
+| bbn                   | out    | Number    | Bea Balik Nama                                                        | bbnkb     |
+| pajak                 | out    | Number    | Pajak                                                                 | bbnkb, stnkLimatTahunan, pajakKendaraanTahunan     |
+| jasaRaharja           | out    | Number    | Jasa Raharja                                                          | bbnkb, stnkLimatTahunan, pajakKendaraanTahunan     |
 | kekuranganPajak       | out    | Number    | Kekurangan Pajak                                                      | All     |
 | finalDendaJR          | out    | Number    | Denda Jasa Raharja                                                    | All     |
-| bpkb                  | out    | Number    | BPKB                                                                  | All     |
-| stnk                  | out    | Number    | STNK                                                                  | All     |
-| platNomor             | out    | Number    | Plat Nomor                                                            | All     |
-| PNPBMutasi                  | out    | Number    | PNPB Mutasi Keluar                                                    | fiskal  |
+| bpkb                  | out    | Number    | BPKB                                                                  | bbnkb     |
+| stnk                  | out    | Number    | STNK                                                                  | bbnkb, stnkLimatTahunan     |
+| platNomor             | out    | Number    | Plat Nomor                                                            | bbnkb, stnkLimatTahunan     |
+| PNPBMutasi            | out    | Number    | PNPB Mutasi Keluar                                                    | fiskal  |
 | total                 | out    | Number    | Total                                                                 | All     |
 
 #### *Can we use other temporary variable for calculation? 
