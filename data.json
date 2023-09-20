@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "vehicleTypes": [
     { "value": "SepedaMotor", "text": "Sepeda Motor" },
     { "value": "Sedan", "text": "Sedan" },
@@ -88,6 +88,7 @@
     "bbnkb": [
       "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
       "njkb = dasarPengenaanPajak / baseWeight.Bobot",
+
       "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
       "pajak = dasarPengenaanPajak * (1.5 / 100)",
 
@@ -110,8 +111,7 @@
     ],
     "fiskal": [
       "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
-      "njkb = dasarPengenaanPajak / baseWeight.Bobot ",
-      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01 ",
+
       "pajak = dasarPengenaanPajak * (1.5 / 100)",
 
       "dendaDuration = telatDay <= 0 ? 0 : telatDay / 30",
@@ -120,15 +120,12 @@
       "jasaRaharja = baseWeight.JR",
 
       "kekuranganPajak = (pajak / 12) * (dendaDuration + 1) ",
-      "dendaJR = baseWeight.DendaJR *   ",
+      "dendaJR = baseWeight.DendaJR * dendaJasaRaharjaDuration",
       "finalDendaJR = jasaRaharja * dendaJasaRaharjaDuration + dendaJR",
 
       "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
 
       "PNPBMutasi = baseWeight.PNPBMutasi",
-      "bpkb = baseWeight.BPKB",
-      "stnk = baseWeight.STNK",
-      "platNomor = baseWeight.Plat",
 
       "total = kekuranganPajak + PNPBMutasi + finalDendaJR"
     ],
@@ -136,7 +133,6 @@
       "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
       "njkb = dasarPengenaanPajak / baseWeight.Bobot",
 
-      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
       "pajak = dasarPengenaanPajak * (1.5 / 100)",
 
       "dendaDuration = telatDay <= 0 ? 0 : telatDay / 31",
@@ -150,7 +146,6 @@
 
       "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
 
-      "bpkb = baseWeight.BPKB",
       "stnk = baseWeight.STNK",
       "platNomor = baseWeight.Plat",
 
@@ -160,7 +155,6 @@
       "dasarPengenaanPajak = (masukanPajak / 1.5) * 100",
       "njkb = dasarPengenaanPajak / baseWeight.Bobot",
 
-      "bbn = (dasarPengenaanPajak / baseWeight.Bobot) * 0.01",
       "pajak = dasarPengenaanPajak * (1.5 / 100)",
 
       "dendaDuration = telatDay <= 0 ? 0 : telatDay / 31",
@@ -173,10 +167,6 @@
       "finalDendaJR = jasaRaharja * floor(dendaJasaRaharjaDuration) + dendaJR",
 
       "kekuranganPajak = telatDay < 0 ? 0 : kekuranganPajak",
-
-      "bpkb = baseWeight.BPKB",
-      "stnk = baseWeight.STNK",
-      "platNomor = baseWeight.Plat",
 
       "total = pajak + jasaRaharja + kekuranganPajak + finalDendaJR"
     ]
