@@ -4,9 +4,11 @@
 
 # Sempol - Semudah Itu Menghitung Pajak Kendaraan Bermotor Online - Data
 
-As we know, Sempol application for calculate Indonesian vehicle tax and [live in here](https://sempol.theflavare.com/#/).
+Sempol application for calculate Indonesian vehicle tax and [live in here](https://sempol.theflavare.com/#/).
 
 This repository is used to maintain the calculation data for Sempol App. Sempol App will take this data as data source, so all release changes in this repository will have directly effect on Sempol App.
+
+You may ask, Where is Sempol App repository? Currently Sempol App is privately maintain by [@theflavare](https://theflavare.com/) and [Kantor Bersama Samsat Surabaya Barat]([https://theflavare.com/](https://www.instagram.com/samsatsbybarat)) (It may change to public in the future)
 
 ### What data are store here?
 App will use [data.json](./data.json) that store:
